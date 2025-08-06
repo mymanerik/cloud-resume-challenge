@@ -225,10 +225,13 @@
                         <strong>AWS Certified Cloud Practitioner</strong>, May 2024
                     </div>
                 </li>
-                <li>
+                <li class="cert-item">
                      <a href="https://www.certmetrics.com/comptia/public/verification.aspx?code=XM9JFRJTLFEF/3K2" target="_blank">
-                        <strong>CompTIA A+</strong>, March 2024
+                        <img src="CompTIAA+.jpeg" alt="CompTIA A+ Badge" class="cert-badge">
                     </a>
+                    <div>
+                        <strong>CompTIA A+</strong>, March 2024
+                    </div>
                 </li>
             </ul>
             <ul class="cert-list">
