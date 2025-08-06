@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Erik Malson | AI and Data Center Engineer</title>
+    <link rel="icon" type="image/png" href="/erikmlicon.png">
     <style>
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
@@ -228,7 +229,7 @@
                 <li class="cert-item">
                      <a href="https://www.certmetrics.com/comptia/public/verification.aspx?code=XM9JFRJTLFEF/3K2" target="_blank">
                         <img src="CompTIAA+.jpeg" alt="CompTIA A+ Badge" class="cert-badge">
-                    </a>
+                     </a>
                     <div>
                         <strong>CompTIA A+</strong>, March 2024
                     </div>

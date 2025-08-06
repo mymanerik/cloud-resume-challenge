@@ -77,7 +77,14 @@ resource "aws_s3_object" "index" {
   etag         = md5(data.template_file.index_template.rendered) # Etag is now based on the rendered content
 }
 
-# This resource uploads the CompTIA A+ badge image to the S3 bucket.
+resource "aws_s3_object" "error" {
+  bucket       = aws_s3_bucket.resume_bucket.id
+  key          = "error.html"
+  source       = "./error.html"
+  content_type = "text/html"
+  etag         = filemd5("./error.html")
+}
+
 resource "aws_s3_object" "cert_badge" {
   bucket       = aws_s3_bucket.resume_bucket.id
   key          = "CompTIAA+.jpeg"
@@ -86,12 +93,13 @@ resource "aws_s3_object" "cert_badge" {
   etag         = filemd5("./CompTIAA+.jpeg")
 }
 
-resource "aws_s3_object" "error" {
+# This resource uploads the favicon to the S3 bucket.
+resource "aws_s3_object" "favicon" {
   bucket       = aws_s3_bucket.resume_bucket.id
-  key          = "error.html"
-  source       = "./error.html"
-  content_type = "text/html"
-  etag         = filemd5("./error.html")
+  key          = "erikmlicon.png"
+  source       = "./erikmlicon.png" # Assumes the image is in the same folder
+  content_type = "image/png"
+  etag         = filemd5("./erikmlicon.png")
 }
 
 # --------------------------------------------------------------------------------------------------
