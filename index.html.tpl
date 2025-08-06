@@ -198,21 +198,16 @@
             <ul>
                 <li class="cert-item">
                     <a href="https://www.credly.com/badges/de4d7157-22d3-4ab3-975d-b9a6555599ae/" target="_blank">
-                        <img src="https://images.credly.com/size/220x220/images/00634f82-b07f-4bbd-a6bb-53de3975351b/image.png" alt="AWS Certified Cloud Practitioner Badge" class="cert-badge">
+                        <img src="https://images.credly.com/size/220x220/images/00634f82-b07f-4bbd-a6bb-53de397fc3a6/image.png" alt="AWS Certified Cloud Practitioner Badge" class="cert-badge">
                     </a>
                     <div>
-                        <strong>AWS Certified Cloud Practitioner</strong><br>
-                        Issued: May 2024
+                        <strong>AWS Certified Cloud Practitioner</strong>, May 2024
                     </div>
                 </li>
-                <li class="cert-item">
-                     <a href="https://www.certmetrics.com/comptia/public/verification.aspx?code=XM9JFRJTLFEQ13K2" target="_blank">
-                        <img src="https://images.credly.com/size/220x220/images/a2790313-4a24-426a-a24b-05d852a353e4/CompTIA_A_2Bce.png" alt="CompTIA A+ Badge" class="cert-badge">
+                <li>
+                     <a href="https://www.certmetrics.com/comptia/public/verification.aspx?code=XM9JFRJTLFEF/3K2" target="_blank">
+                        <strong>CompTIA A+</strong>, March 2024
                     </a>
-                    <div>
-                        <strong>CompTIA A+</strong><br>
-                        Issued: March 2024
-                    </div>
                 </li>
             </ul>
             <ul class="cert-list">

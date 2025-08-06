@@ -77,6 +77,15 @@ resource "aws_s3_object" "index" {
   etag         = md5(data.template_file.index_template.rendered) # Etag is now based on the rendered content
 }
 
+# This resource uploads the CompTIA A+ badge image to the S3 bucket.
+resource "aws_s3_object" "cert_badge" {
+  bucket       = aws_s3_bucket.resume_bucket.id
+  key          = "CompTIAA+.jpeg"
+  source       = "./CompTIAA+.jpeg" # Assumes the image is in the same folder
+  content_type = "image/jpeg"
+  etag         = filemd5("./CompTIAA+.jpeg")
+}
+
 resource "aws_s3_object" "error" {
   bucket       = aws_s3_bucket.resume_bucket.id
   key          = "error.html"
