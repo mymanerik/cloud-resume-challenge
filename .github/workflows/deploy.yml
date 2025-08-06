@@ -1,0 +1,61 @@
+# This is the name of our GitHub Actions workflow.
+# It will be displayed in the "Actions" tab of your GitHub repository.
+name: Deploy Resume Website with Terraform
+
+# This section defines when the workflow should run.
+# 'on: push: branches: [ "main" ]' means this workflow will be triggered
+# every time a commit is pushed to the "main" branch.
+on:
+  push:
+    branches: [ "main" ]
+
+# This section defines the jobs that will be run as part of the workflow.
+# We only have one job, named "deploy".
+jobs:
+  deploy:
+    # This specifies that the job will run on the latest version of an Ubuntu Linux runner
+    # provided by GitHub.
+    runs-on: ubuntu-latest
+    
+    # This is a crucial security step. We are granting the job the permission
+    # to get an OIDC token from GitHub, which it will use to authenticate with AWS.
+    permissions:
+      id-token: write
+      contents: read
+
+    # This section defines the individual steps within the "deploy" job.
+    steps:
+      # Step 1: Check out the code from the repository.
+      # This downloads your code (main.tf, index.html.tpl, etc.) onto the runner.
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      # Step 2: Configure AWS credentials using OIDC.
+      # This is the modern, secure, passwordless way to authenticate.
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v2
+        with:
+          # The AWS region where our resources are.
+          aws-region: us-east-1
+          # The ARN of the IAM role we created in AWS.
+          # IMPORTANT: Replace the placeholder below with the actual ARN of your role.
+          role-to-assume: arn:aws:iam::490004611477:role/github-actions-terraform-role
+
+      # Step 3: Setup Terraform on the runner.
+      # This action downloads and installs the Terraform CLI.
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v2
+        with:
+          terraform_version: 1.1.9 # You can specify a version of Terraform
+
+      # Step 4: Initialize Terraform.
+      # This runs 'terraform init' to download the necessary provider plugins.
+      - name: Terraform Init
+        run: terraform init
+
+      # Step 5: Apply the Terraform plan.
+      # This runs 'terraform apply' with the '-auto-approve' flag so it doesn't
+      # stop and ask for confirmation.
+      - name: Terraform Apply
+        run: terraform apply -auto-approve
+
